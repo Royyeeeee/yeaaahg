@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html onkeypress="Upload(event)">
+
+<head>
+    <style>
+        body {
+            background-color: #2b2b2b;
+            overflow-y: hidden;
+        }
+        /* Displays subscribers. */
+        
+        #Subscribers {
+            text-align: center;
+            font-family: cursive;
+            width: 300px;
+            height: 40px;
+            font-size: 25px;
+            color: white;
+            border-radius: 10px;
+        }
+        /* Displays views. */
+        
+        #Views {
+            text-align: center;
+            font-family: cursive;
+            position: relative;
+            width: 300px;
+            height: 40px;
+            font-size: 25px;
+            color: white;
+            border-radius: 10px;
+        }
+        /*space between the Live Count and the UI.*/
+        
+        #Count_Buttons {
+            height: 100px;
+        }
+        
+        #Border_Create_Video {
+            Width: 400px;
+            border: 5px solid black;
+            height: 400px;
+            box-shadow: 10px 10px 15px;
+        }
+        
+        #Start_Video {
+            width: 250px;
+            height: 75px;
+            font-size: 30px;
+            position: relative;
+            top: 100px;
+            background-color: black;
+            border: 5px solid white;
+            color: white;
+        }
+        
+        #Shop {
+            box-shadow: 5px 5px 10px black;
+            position: relative;
+            top: -550px;
+            left: 20px;
+            width: 730px;
+            height: 700px;
+            border: 5px solid black;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        
+        #shop_Name {
+            background-color: black;
+            color: white;
+            font-size: 70px;
+            border: 5px solid white;
+            width: 400px;
+            height: 90px;
+            position: relative;
+            top: -570px;
+        }
+        
+        #Item {
+            position: relative;
+            top: 30px;
+            left: 0px;
+            box-shadow: 10px 10px 20px black;
+            width: 660px;
+            height: 200px;
+            border: 5px solid black;
+        }
+        
+        #Item_Name {
+            width: 200px;
+            background-color: black;
+            box-shadow: 5px 5px 10px black;
+            height: 50px;
+            color: white;
+            font-size: 30px;
+        }
+        
+        #Vid_Subs {
+            color: white;
+            font-family: cursive;
+            font-size: 25px;
+            position: relative;
+            top: 150px;
+        }
+        
+        #Vid_Views {
+            color: white;
+            font-family: cursive;
+            font-size: 25px;
+            position: relative;
+            top: -290px;
+        }
+        
+        #Play_Button {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: -425px;
+            left: 40px;
+        }
+        
+        #Viewa {
+            Width: 60%;
+            height: 60%;
+            position: relative;
+            top: -595px;
+            left: 50px;
+        }
+        
+        #Camera {
+            width: 25%;
+            position: relative;
+            left: -220px;
+        }
+        
+        #histo {
+            width: 300px;
+            height: 250px;
+            border: 5px solid black;
+            position: relative;
+            top: -230px;
+            box-shadow: 10px 10px 20px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        
+        #History_Name {
+            Width: 200px;
+            height: 50px;
+            font-size: 30PX;
+            background-color: black;
+            border: 5px solid white;
+            color: White;
+        }
+        
+        #Buy {
+            width: 100px;
+            height: 55px;
+            font-size: 20px;
+            border: 5px solid white;
+            background-color: black;
+            color: white;
+            position: relative;
+            top: 20px;
+        }
+        
+        .Price {
+            color: white;
+            font-family: cursive;
+            position: relative;
+            top: 10px;
+        }
+        
+        #Stats_Border {
+            Width: 400px;
+            height: 400px;
+            border: 5px solid black;
+            float: right;
+            position: relative;
+            top: -1300px;
+            box-shadow: 10px 10px 40px black;
+        }
+        
+        .Stat {
+            color: white;
+            font-size: 22px;
+            font-family: cursive;
+        }
+        
+        #Stats_Name {
+            Width: 150px;
+            height: 50px;
+            background-color: black;
+            border: 5px solid white;
+            color: white;
+            font-size: 35px;
+        }
+        
+        #Trending_Button {
+            width: 180px;
+            height: 55px;
+            background-color: black;
+            border: 5px solid white;
+            color: white;
+            position: relative;
+            top: 120px;
+            font-size: 20px;
+        }
+        
+        #Leaderboard {
+            width: 400px;
+            height: 350px;
+            border: 5px solid black;
+            float: right;
+            position: relative;
+            top: 140px;
+            overflow-y: scroll;
+            box-shadow: 20px 10px 20px black;
+        }
+        
+        #Leaderboard_Name {
+            width: 170px;
+            height: 50px;
+            font-size: 30px;
+            color: white;
+            background-color: black;
+            border: 5px solid white;
+        }
+        
+        .Placed {
+            font-size: 25px;
+            color: white;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div id="Subscribers">0</div>
+    <br>
+    <div id="Views">0</div>
+    <div id="Count_Buttons"></div>
+    <div id="Border_Create_Video">
+        <center>
+            <button onclick="video_Made()" id="Start_Video">Create Video!</button>
+            <button id='Trending_Button' onclick="Trending(event)">What's Trending?</button>
+            <div id="Vid_Subs">0 Video Subscribers</div>
+            <img id="Play_Button" src="data:image/png;base64,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">
+            <img id="Viewa" src='data:image/png;base64,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'>
+            <div id="Vid_Views">0 Video Views</div>
+            <div id="histo">
+                <div id="History_Name">History</div>
+            </div>
+        </center>
+    </div>
+    <center>
+        <div id="shop_Name">Shop</div>
+        <div id="Shop">
+            <div id="Item">
+                <div id="Item_Name">Sony RX100</div>
+                <button onclick="Camera_Upgrade()" id="Buy">Buy</button>
+                <h1 class="Price" id="one">Price: 100 Views</h1>
+            </div>
+            <br>
+            <div id="Item">
+                <div id="Item_Name">HyperX HS</div>
+                <button onclick="Headset_Upgrade()" id="Buy">Buy</button>
+                <h1 class="Price" id="two">Price: 270 Views</h1>
+            </div>
+            <br>
+            <div id="Item">
+                <div id="Item_Name">GTX 1050</div>
+                <button onclick="Speed_Upgrade()" id="Buy">Buy</button>
+                <h1 class="Price" id="three">Price: 1590 Views</h1>
+            </div>
+            <br>
+            <div id="Item">
+                <div id="Item_Name"></div>
+                <button id="Buy">Buy</button>
+                <h1 class="Price" id="4">Price: 100 Views</h1>
+            </div>
+            <br>
+            <div id="Item">
+                <div id="I tem_Name"></div>
+                <button id="Buy">Buy</button>
+                <h1 id="Price">Price: 100 Views</h1>
+            </div>
+            <br>
+            <div id="Item">
+                <div id="Item_Name"></div>
+                <button id="Buy">Buy</button>
+                <h1 id="Price">Price: 100 Views</h1>
+            </div>
+        </div>
+        <div id="Stats_Border">
+            <div id="Stats_Name">Stats</div>
+            <br>
+            <br>
+            <div class="Stat" id="SR">Sub Odds per View: 1/10</div>
+            <br>
+            <div class="Stat" id="VR">View Range per Video: 35 - 100</div>
+            <br>
+            <div class="Stat" id="Spee">View Speed: 50ms/View</div>
+            <br>
+            <div class="Stat" id="TV">Total Views: 0</div>
+            <div id="Leaderboard">
+                <div id="Leaderboard_Name">Leaderboards</div>
+                <br>
+                <h1 class="Placed" id="Pewdiepie">1.) PewDiePie: 110,403,203</h1>
+                <h1 class="Placed" id="MrBeast">2.) MrBeast: 93,323,643</h1>
+                <h1 class="Placed" id="Dude">3.) Dude Perfect: 53,432,643</h1>
+                <h1 class="Placed"></h1>
+                <h1 class="Placed"></h1>
+                <h1 class="Placed"></h1>
+                <br>
+                <h1 class="Placed"></h1>
+                <br>
+                <h1 class="Placed"></h1>
+                <br>
+                <h1 class="Placed"></h1>
+                <br>
+                <h1 class="Placed"></h1>
+            </div>
+        </div>
+    </center>
+    <script>
+    let Subscribers = document.getElementById("Subscribers");
+let Views = document.getElementById("Views");
+let Cam_Price = document.getElementById("one");
+let Head_Price = document.getElementById("two");
+let Speeda = document.getElementById("three");
+let StatsSR = document.getElementById("SR");
+let StatsVR = document.getElementById("VR");
+let StatsTV = document.getElementById("TV");
+let StatsSpeed = document.getElementById("Spee")
+    //top youtubers
+let Pewd = document.getElementById("Pewdiepie");
+let Mr = document.getElementById("MrBeast");
+let Dudep = document.getElementById("Dude");
+let Pew = 110403203
+let Mrbeast = 93323643
+let Dude = 53432643
+    //videos
+let video1 = 0;
+let video2 = 0;
+let video3 = 0;
+//shop
+let Camera_Price = 100;
+let Headset_Price = 270;
+let Speed_Price = 1590;
+//trending topics
+let word1 = 'game';
+let word2 = 'quandale dingle';
+let word3 = '3am'
+    //Use real NumInt for subs/views.
+let Video_View = 0;
+let Sub = 1180;
+let View = 0;
+let VRV = document.getElementById("Vid_Views");
+let VRS = document.getElementById("Vid_Subs");
+let VVV = 0;
+let VVS = 0;
+let STV = 0;
+let STS = 0;
+let ani = 0;
+//1 out of 20 chance of video hitting trending (decreases after upgrades).
+let trending = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let Peak_View = 400;
+let Low_View = 100;
+let Peak_Sub = 10
+    //logics (can be updated)
+let speed = 50;
+let day = 0
+let sub_Chance = 0;
+let logo = 0;
+let View_Logic = 0;
+let time = 0;
+let rem = 0;
+//time.
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+//keyboard upload version
+function Upload(event) {
+    x = event.keyCode;
+    if (x == 85) {
+        video_Made()
+    }
+}
+y = setInterval(function() {
+    Pew++;
+    Pewda = Pew.toLocaleString("en-US");
+    Pewd.innerHTML = "1.) Pewdiepie: " + Pewda;
+}, 150)
+x = setInterval(function() {
+    Mrbeast++
+    MB = Mrbeast.toLocaleString("en-US");
+    Mr.innerHTML = "2.) MrBeast: " + MB
+}, 75)
+z = setInterval(function() {
+    Dude++
+    Duda = Dude.toLocaleString("en-US");
+    Dudep.innerHTML = "3.) Dude Perfect: " + Duda
+}, 240)
+let video_Made = () => {
+    day++;
+    logo++;
+    if (logo == 1) {
+        VVV = 0;
+        VVS = 0;
+        time = Math.floor(Math.random() * (Peak_View - Low_View + 1) + 20)
+        start = setInterval(function() {
+            time--;
+            VVV++;
+            STV++;
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.Viewz) {
+                    localStorage.Viewz = Number(localStorage.Viewz) + 1;
+                    View = localStorage.Viewz
+                } else {
+                    localStorage.Viewz = 1;
+                }
+            }
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.Subs) {
+                    View_Logic = Math.floor(Math.random() * (Peak_Sub - 1 + 1) + 1)
+                    if (View_Logic == 3) {
+                        ani++
+                        if (ani == 3) {
+                            document.getElementById("Play_Button").animate([
+                                { transform: 'translateY(0px)' },
+                                { transform: 'translateY(-20px)' },
+                                { transform: 'translateY(0px)' }
+                            ], {
+                                duration: 300,
+                                iterations: 1
+                            })
+                            ani = 0;
+                        }
+                        View_Logic = 0;
+
+                        localStorage.Subs = Number(localStorage.Subs) + 1;
+                        VVS++;
+                    }
+                } else {
+                    localStorage.Subs = 1;
+                }
+                Subscribers.innerHTML = localStorage.Subs;
+            }
+            Views.innerHTML = View;
+            VRV.innerHTML = VVV + " Video Views";
+            VRS.innerHTML = VVS + " Video Subscribers";
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.yes) {
+                    localStorage.yes = Number(localStorage.yes) + 1;
+                    STV = localStorage.yes
+                } else {
+                    localStorage.yes = 1;
+                }
+            }
+            StatsTV.innerHTML = "Total Views: " + STV
+            if (time == 0) {
+                time = 30;
+                logo = 0;
+                let History = document.createElement("h1");
+                History.innerHTML = day + ".) " + VVS + ", " + VVV;
+                History.style.color = "white";
+                History.style.fontFamily = 'cursive';
+                History.style.fontSize = "25px";
+                History.style.position = 'relative'
+                document.getElementById('histo').appendChild(History);
+                clearInterval(start);
+            }
+        }, speed);
+    }
+}
+if (logo >= 2) {
+
+}
+
+
+
+let Camera_Upgrade = () => {
+    alert("Upgrading your Camera will Increase your View Range per Video. (100%+)")
+    answer = prompt("Do you want to Upgrade your Camera? (y/anything else)")
+    if (answer == "y") {
+        if (View >= Camera_Price) {
+            View -= Camera_Price;
+            alert("You Upgraded your Camera!");
+            Low_View *= 2;
+            Peak_View *= 2;
+            Camera_Price *= 2.4;
+            Cam_Price.innerHTML = "Price: " + Math.round(Camera_Price) + " Views"
+            Views.innerHTML = View;
+            StatsVR.innerHTML = "View Range per Video: " + Low_View + " - " + Peak_View;
+        } else {
+            alert("You don't have enough for this upgrade!")
+        }
+    }
+}
+
+function Headset_Upgrade() {
+    alert("Upgrading your Headset will increase your chances at Subscriber per View. (+10%)");
+    answer = prompt("Do you want to Upgrade your Headset? (y/anything else)")
+    if (answer == "y") {
+        if (View >= Headset_Price) {
+            alert("You Upgraded your Headset!");
+            Peak_Sub--;
+            Head_Price.innerHTML = "Price: " + Math.round(Headset_Price) + " Views";
+            View -= Headset_Price;
+            Headset_Price *= 2.4;
+            Views.innerHTML = View;
+            Head_Price.innerHTML = "Price: " + Headset_Price;
+            StatsSR.innerHTML = "Sub Odds per View: 1/" + Peak_Sub;
+        } else {
+            alert("You don't have enough Views for this purchase!")
+        }
+    }
+}
+
+function Speed_Upgrade() {
+    alert("Upgrading your GPU will increase your View Speed. (+10%)");
+    answer = prompt("Do you want to Upgrade your GPU? (y/anything else)");
+    if (answer == "y") {
+        if (View >= Speed_Price) {
+            alert("You Bought a New GPU!");
+            speed -= 5;
+            View -= Speed_Price
+            Speed_Price *= 2.4;
+
+            Speeda.innerHTML = "Price: " + Speed_Price;
+            Views.innerHTML = View;
+            StatsSpeed.innerHTML = "View Speed: " + speed + "ms/View"
+        } else {
+            alert("You don't have enough views for this purchase!")
+        }
+    }
+
+}
+
+function Trending(event) {
+    alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
+}    </script>
+</body>
+
+</html>
