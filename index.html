@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html onkeypress="Upload(event)">
-
+ 
 <head>
     <style>
-        body {
+          body {
             background-color: #2b2b2b;
-            overflow-y: hidden;
         }
         /* Displays subscribers. */
-        
+       
         #Subscribers {
             text-align: center;
             font-family: cursive;
@@ -19,7 +18,7 @@
             border-radius: 10px;
         }
         /* Displays views. */
-        
+       
         #Views {
             text-align: center;
             font-family: cursive;
@@ -31,18 +30,18 @@
             border-radius: 10px;
         }
         /*space between the Live Count and the UI.*/
-        
+       
         #Count_Buttons {
             height: 100px;
         }
-        
+       
         #Border_Create_Video {
             Width: 400px;
             border: 5px solid black;
             height: 400px;
             box-shadow: 10px 10px 15px;
         }
-        
+       
         #Start_Video {
             width: 250px;
             height: 75px;
@@ -53,7 +52,7 @@
             border: 5px solid white;
             color: white;
         }
-        
+       
         #Shop {
             box-shadow: 5px 5px 10px black;
             position: relative;
@@ -65,7 +64,7 @@
             overflow-y: scroll;
             overflow-x: hidden;
         }
-        
+       
         #shop_Name {
             background-color: black;
             color: white;
@@ -76,7 +75,7 @@
             position: relative;
             top: -570px;
         }
-        
+       
         #Item {
             position: relative;
             top: 30px;
@@ -86,7 +85,7 @@
             height: 200px;
             border: 5px solid black;
         }
-        
+       
         #Item_Name {
             width: 200px;
             background-color: black;
@@ -95,7 +94,7 @@
             color: white;
             font-size: 30px;
         }
-        
+       
         #Vid_Subs {
             color: white;
             font-family: cursive;
@@ -103,7 +102,7 @@
             position: relative;
             top: 150px;
         }
-        
+       
         #Vid_Views {
             color: white;
             font-family: cursive;
@@ -111,7 +110,7 @@
             position: relative;
             top: -290px;
         }
-        
+       
         #Play_Button {
             width: 50%;
             height: 50%;
@@ -119,7 +118,7 @@
             top: -425px;
             left: 40px;
         }
-        
+       
         #Viewa {
             Width: 60%;
             height: 60%;
@@ -127,24 +126,24 @@
             top: -595px;
             left: 50px;
         }
-        
+       
         #Camera {
             width: 25%;
             position: relative;
             left: -220px;
         }
-        
+       
         #histo {
             width: 300px;
             height: 250px;
             border: 5px solid black;
-            position: relative;
+            position: relative;  
             top: -230px;
             box-shadow: 10px 10px 20px;
             overflow-y: scroll;
             overflow-x: hidden;
         }
-        
+       
         #History_Name {
             Width: 200px;
             height: 50px;
@@ -153,7 +152,7 @@
             border: 5px solid white;
             color: White;
         }
-        
+       
         #Buy {
             width: 100px;
             height: 55px;
@@ -164,14 +163,14 @@
             position: relative;
             top: 20px;
         }
-        
+       
         .Price {
             color: white;
             font-family: cursive;
             position: relative;
             top: 10px;
         }
-        
+       
         #Stats_Border {
             Width: 400px;
             height: 400px;
@@ -181,13 +180,13 @@
             top: -1300px;
             box-shadow: 10px 10px 40px black;
         }
-        
+       
         .Stat {
             color: white;
             font-size: 22px;
             font-family: cursive;
         }
-        
+       
         #Stats_Name {
             Width: 150px;
             height: 50px;
@@ -196,7 +195,7 @@
             color: white;
             font-size: 35px;
         }
-        
+       
         #Trending_Button {
             width: 180px;
             height: 55px;
@@ -207,35 +206,43 @@
             top: 120px;
             font-size: 20px;
         }
-        
-        #Leaderboard {
+ 
+        #Leaderboard{
             width: 400px;
             height: 350px;
-            border: 5px solid black;
-            float: right;
-            position: relative;
+            border:5px solid black;
+            float:right;
+            position:relative;
             top: 140px;
-            overflow-y: scroll;
-            box-shadow: 20px 10px 20px black;
+            overflow-y:scroll;  
+            box-shadow:20px 10px 20px black;
         }
-        
-        #Leaderboard_Name {
-            width: 170px;
-            height: 50px;
-            font-size: 30px;
+ 
+        #Leaderboard_Name{
+            width:170px;
+            height:50px;
+            font-size:30px;
             color: white;
-            background-color: black;
+            background-color:black;
             border: 5px solid white;
         }
-        
+ 
         .Placed {
-            font-size: 25px;
-            color: white;
-            font-family: cursive;
+            font-size:20px;
+            color:white;
+            font-family:cursive;
         }
+      
+      #Betting{
+        width:700px;
+        height:500px;
+        border:5px solid black;
+        position:relative;
+        top:-500px;
+      }
     </style>
 </head>
-
+ 
 <body>
     <br>
     <div id="Subscribers">0</div>
@@ -300,19 +307,24 @@
             <br>
             <div class="Stat" id="SR">Sub Odds per View: 1/10</div>
             <br>
-            <div class="Stat" id="VR">View Range per Video: 35 - 100</div>
+            <div class="Stat" id="VR">View Range per Video: 100 - 400</div>
             <br>
             <div class="Stat" id="Spee">View Speed: 50ms/View</div>
             <br>
-            <div class="Stat" id="TV">Total Views: 0</div>
+            <div class="Stat" id="TV">Total Views: 0</div>  
             <div id="Leaderboard">
                 <div id="Leaderboard_Name">Leaderboards</div>
                 <br>
                 <h1 class="Placed" id="Pewdiepie">1.) PewDiePie: 110,403,203</h1>
+           
                 <h1 class="Placed" id="MrBeast">2.) MrBeast: 93,323,643</h1>
+ 
                 <h1 class="Placed" id="Dude">3.) Dude Perfect: 53,432,643</h1>
+ 
                 <h1 class="Placed"></h1>
+ 
                 <h1 class="Placed"></h1>
+ 
                 <h1 class="Placed"></h1>
                 <br>
                 <h1 class="Placed"></h1>
@@ -324,212 +336,253 @@
                 <h1 class="Placed"></h1>
             </div>
         </div>
+      <center>
+        <div id='Betting'>
+          
+        </div>
+      </center>
     </center>
     <script>
-    let Subscribers = document.getElementById("Subscribers");
-let Views = document.getElementById("Views");
-let Cam_Price = document.getElementById("one");
-let Head_Price = document.getElementById("two");
-let Speeda = document.getElementById("three");
-let StatsSR = document.getElementById("SR");
-let StatsVR = document.getElementById("VR");
-let StatsTV = document.getElementById("TV");
-let StatsSpeed = document.getElementById("Spee")
-    //top youtubers
-let Pewd = document.getElementById("Pewdiepie");
-let Mr = document.getElementById("MrBeast");
-let Dudep = document.getElementById("Dude");
-let Pew = 110403203
-let Mrbeast = 93323643
-let Dude = 53432643
-    //videos
-let video1 = 0;
-let video2 = 0;
-let video3 = 0;
-//shop
-let Camera_Price = 100;
-let Headset_Price = 270;
-let Speed_Price = 1590;
-//trending topics
-let word1 = 'game';
-let word2 = 'quandale dingle';
-let word3 = '3am'
-    //Use real NumInt for subs/views.
-let Video_View = 0;
-let Sub = 1180;
-let View = 0;
-let VRV = document.getElementById("Vid_Views");
-let VRS = document.getElementById("Vid_Subs");
-let VVV = 0;
-let VVS = 0;
-let STV = 0;
-let STS = 0;
-let ani = 0;
-//1 out of 20 chance of video hitting trending (decreases after upgrades).
-let trending = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-let Peak_View = 400;
-let Low_View = 100;
-let Peak_Sub = 10
-    //logics (can be updated)
-let speed = 50;
-let day = 0
-let sub_Chance = 0;
-let logo = 0;
-let View_Logic = 0;
-let time = 0;
-let rem = 0;
-//time.
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-//keyboard upload version
-function Upload(event) {
-    x = event.keyCode;
-    if (x == 85) {
-        video_Made()
-    }
-}
-y = setInterval(function() {
-    Pew++;
-    Pewda = Pew.toLocaleString("en-US");
-    Pewd.innerHTML = "1.) Pewdiepie: " + Pewda;
-}, 150)
-x = setInterval(function() {
-    Mrbeast++
-    MB = Mrbeast.toLocaleString("en-US");
-    Mr.innerHTML = "2.) MrBeast: " + MB
-}, 75)
-z = setInterval(function() {
-    Dude++
-    Duda = Dude.toLocaleString("en-US");
-    Dudep.innerHTML = "3.) Dude Perfect: " + Duda
-}, 240)
-let video_Made = () => {
-    day++;
-    logo++;
-    if (logo == 1) {
-        VVV = 0;
-        VVS = 0;
-        time = Math.floor(Math.random() * (Peak_View - Low_View + 1) + 20)
-        start = setInterval(function() {
-            time--;
-            VVV++;
-            STV++;
-            if (typeof(Storage) !== "undefined") {
+//display subs/views.
+ let Subscribers = document.getElementById("Subscribers");
+ let Views = document.getElementById("Views");
+ let Cam_Price = document.getElementById("one");
+ let Head_Price = document.getElementById("two");
+ let Speeda = document.getElementById("three");
+ let StatsSR = document.getElementById("SR");
+ let StatsVR = document.getElementById("VR");
+ let StatsTV = document.getElementById("TV");
+ let StatsSpeed = document.getElementById("Spee")
+ //top youtubers
+ let Pewd = document.getElementById("Pewdiepie");
+ let Mr = document.getElementById("MrBeast");
+ let Dudep = document.getElementById("Dude");
+ let Pew = 110403203
+ let Mrbeast = 93323643
+ let Dude = 53432643
+ //videos
+ let video1 = 0;
+ let video2 = 0;
+ let video3 = 0;
+ //shop
+ let Camera_Price = 100;
+ let Headset_Price = 270;  
+ let Speed_Price = 1590;
+ //trending topics
+ let word1 = 'game';
+ let word2 = 'quandale dingle';
+ let word3 = '3am'
+     //Use real NumInt for subs/views.
+ let Video_View = 0;
+ let Sub = 1180;
+ let View = 0;
+ let VRV = document.getElementById("Vid_Views");
+ let VRS = document.getElementById("Vid_Subs");
+ let VVV = 0;
+ let VVS = 0;
+ let STV = 0;
+ let STS = 0;
+ let ani = 0;
+ //1 out of 20 chance of video hitting trending (decreases after upgrades).
+ let trending = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+ let Peak_View = 400;
+ let Low_View = 100 ;
+ let Peak_Sub = 10
+
+               localStorage.Camera_Pricez = Number(localStorage.Camera_Pricez)+100;
+     //logics (can be updated)
+ let speed = 50;
+ let day = 0
+ let sub_Chance = 0;
+ let logo = 0;
+ let View_Logic = 0;
+ let time = 0;
+ let rem = 0;
+ //time.
+ function sleep(ms) {
+     return new Promise(resolve => setTimeout(resolve, ms));
+ }
+ 
+ 
+ //keyboard upload version
+ function Upload(event) {
+     x = event.keyCode;
+     if (x == 85) {
+         video_Made()
+     }
+ }
+ 
+ y = setInterval(function(){
+   Pew++;
+   Pewda = Pew.toLocaleString("en-US");
+   Pewd.innerHTML = "1.) Pewdiepie: " + Pewda;
+ },150)
+ 
+ x = setInterval(function(){
+     Mrbeast++
+     MB = Mrbeast.toLocaleString("en-US");
+     Mr.innerHTML = "2.) MrBeast: " + MB
+ },75)
+ 
+ z = setInterval(function(){
+     Dude++
+     Duda = Dude.toLocaleString("en-US");
+     Dudep.innerHTML = "3.) Dude Perfect: " + Duda
+ },240)
+ 
+ 
+ let video_Made = () => {
+     day++;
+     logo++;
+     if (logo == 1) {
+         VVV = 0;
+         VVS = 0;
+         time = Math.floor(Math.random() * (localStorage.Peak_Viewz - localStorage.Low_Viewz + 1) + localStorage.Low_Viewz)
+         start = setInterval(function() {
+             time--;
+             VVV++;
+             STV++;
+             if (typeof(Storage) !== "undefined") {
                 if (localStorage.Viewz) {
-                    localStorage.Viewz = Number(localStorage.Viewz) + 1;
-                    View = localStorage.Viewz
+                  localStorage.Viewz = Number(localStorage.Viewz)+1;
+                  View = localStorage.Viewz
                 } else {
-                    localStorage.Viewz = 1;
+                  localStorage.Viewz = 1;
                 }
             }
-            if (typeof(Storage) !== "undefined") {
+               
+           
+           
+             if (typeof(Storage) !== "undefined") {
                 if (localStorage.Subs) {
                     View_Logic = Math.floor(Math.random() * (Peak_Sub - 1 + 1) + 1)
-                    if (View_Logic == 3) {
-                        ani++
-                        if (ani == 3) {
-                            document.getElementById("Play_Button").animate([
-                                { transform: 'translateY(0px)' },
-                                { transform: 'translateY(-20px)' },
-                                { transform: 'translateY(0px)' }
-                            ], {
-                                duration: 300,
-                                iterations: 1
-                            })
-                            ani = 0;
-                        }
-                        View_Logic = 0;
-
-                        localStorage.Subs = Number(localStorage.Subs) + 1;
-                        VVS++;
-                    }
+             if (View_Logic == 3) {
+                 ani++
+                 if (ani == 3) {
+                     document.getElementById("Play_Button").animate([
+                         { transform: 'translateY(0px)' },
+                         { transform: 'translateY(-20px)' },
+                         { transform: 'translateY(0px)' }
+                     ], {
+                         duration: 300,
+                         iterations: 1
+                     })
+                     ani = 0;
+                 }
+                 View_Logic = 0;
+                 
+                  localStorage.Subs = Number(localStorage.Subs)+1;
+                 VVS++;
+             }
                 } else {
-                    localStorage.Subs = 1;
+                  localStorage.Subs = 1;
                 }
                 Subscribers.innerHTML = localStorage.Subs;
-            }
-            Views.innerHTML = View;
-            VRV.innerHTML = VVV + " Video Views";
-            VRS.innerHTML = VVS + " Video Subscribers";
-            if (typeof(Storage) !== "undefined") {
+              }  
+             Views.innerHTML = View;
+             VRV.innerHTML = VVV + " Video Views";
+             VRS.innerHTML = VVS + " Video Subscribers";
+             if (typeof(Storage) !== "undefined") {
                 if (localStorage.yes) {
-                    localStorage.yes = Number(localStorage.yes) + 1;
-                    STV = localStorage.yes
+                  localStorage.yes = Number(localStorage.yes)+1;
+                  STV = localStorage.yes
                 } else {
-                    localStorage.yes = 1;
+                  localStorage.yes = 1;
                 }
             }
-            StatsTV.innerHTML = "Total Views: " + STV
-            if (time == 0) {
-                time = 30;
-                logo = 0;
-                let History = document.createElement("h1");
-                History.innerHTML = day + ".) " + VVS + ", " + VVV;
-                History.style.color = "white";
-                History.style.fontFamily = 'cursive';
-                History.style.fontSize = "25px";
-                History.style.position = 'relative'
-                document.getElementById('histo').appendChild(History);
-                clearInterval(start);
+             StatsTV.innerHTML = "Total Views: " + STV
+             if (time == 0) {
+                 time = 30;
+                 logo = 0;
+                 let History = document.createElement("h1");
+                 History.innerHTML = day + ".) " + VVS + ", " + VVV;
+                 History.style.color = "white";
+                 History.style.fontFamily = 'cursive';
+                 History.style.fontSize = "25px";
+                 History.style.position = 'relative'
+                 document.getElementById('histo').appendChild(History);
+                 clearInterval(start);
+             }
+         }, speed);
+     }
+    }
+     if (logo >= 2) {
+ 
+     }
+ 
+ 
+ 
+ let Camera_Upgrade = () => {
+     alert("Upgrading your Camera will Increase your View Range per Video. (100%+)")
+     answer = prompt("Do you want to Upgrade your Camera? (y/anything else)")
+     if (answer == "y") {
+         if (View >= localStorage.Camera_Pricez) {
+             alert("You Upgraded your Camera!");
+            if (typeof(Storage) !== "undefined") {
+                if (localStorage.Low_Viewz) {
+                  localStorage.Low_Viewz = Number(localStorage.Low_Viewz)+100*2.4;
+                  Low_View = localStorage.Low_Viewz
+                } else {
+                  localStorage.Low_Viewz = 1;
+                }
             }
-        }, speed);
-    }
-}
-if (logo >= 2) {
-
-}
-
-
-
-let Camera_Upgrade = () => {
-    alert("Upgrading your Camera will Increase your View Range per Video. (100%+)")
-    answer = prompt("Do you want to Upgrade your Camera? (y/anything else)")
-    if (answer == "y") {
-        if (View >= Camera_Price) {
-            View -= Camera_Price;
-            alert("You Upgraded your Camera!");
-            Low_View *= 2;
-            Peak_View *= 2;
-            Camera_Price *= 2.4;
-            Cam_Price.innerHTML = "Price: " + Math.round(Camera_Price) + " Views"
-            Views.innerHTML = View;
-            StatsVR.innerHTML = "View Range per Video: " + Low_View + " - " + Peak_View;
-        } else {
-            alert("You don't have enough for this upgrade!")
-        }
-    }
-}
-
-function Headset_Upgrade() {
-    alert("Upgrading your Headset will increase your chances at Subscriber per View. (+10%)");
-    answer = prompt("Do you want to Upgrade your Headset? (y/anything else)")
-    if (answer == "y") {
-        if (View >= Headset_Price) {
-            alert("You Upgraded your Headset!");
-            Peak_Sub--;
-            Head_Price.innerHTML = "Price: " + Math.round(Headset_Price) + " Views";
-            View -= Headset_Price;
-            Headset_Price *= 2.4;
-            Views.innerHTML = View;
-            Head_Price.innerHTML = "Price: " + Headset_Price;
-            StatsSR.innerHTML = "Sub Odds per View: 1/" + Peak_Sub;
-        } else {
-            alert("You don't have enough Views for this purchase!")
-        }
-    }
-}
-
-function Speed_Upgrade() {
+           if (typeof(Storage) !== "undefined") {
+                if (localStorage.Peak_Viewz) {
+                  localStorage.Peak_Viewz = Number(localStorage.Peak_Viewz)+100*2.4;
+                  Peak_View = localStorage.Peak_Viewz
+                } else {
+                  localStorage.Peak_Viewz = 1;
+                }
+            }
+             if (typeof(Storage) !== "undefined") {
+                if (localStorage.Camera_Pricez) {
+                  localStorage.Camera_Pricez = Number(localStorage.Camera_Pricez)+153*2.4;
+                  Low_View = localStorage.Camera_Pricez
+                  Camera_Price = localStorage.Camera_Pricez
+                  View -= localStorage.Camera_Pricez;
+                } else {
+                  localStorage.Camera_Pricez = 1;
+                }
+            }
+             Cam_Price.innerHTML = "Price: " + Math.round(localStorage.Camera_Pricez) + " Views"
+             Views.innerHTML = View;
+             StatsVR.innerHTML = "View Range per Video: " + localStorage.Low_Viewz + " - " + localStorage.Peak_Viewz;
+         } else {
+             alert("You don't have enough for this upgrade!")
+           console.log(localStorage.Camera_Pricez);
+         }
+     }
+ }
+ 
+ function Headset_Upgrade(){
+     alert("Upgrading your Headset will increase your chances at Subscriber per View. (+10%)");
+     answer = prompt("Do you want to Upgrade your Headset? (y/anything else)")
+     if(answer == "y"){
+         if(View >= Headset_Price){
+             alert("You Upgraded your Headset!");
+             Peak_Sub--;
+              Head_Price.innerHTML = "Price: " + Math.round(Headset_Price) + " Views";
+              View -= Headset_Price;
+              Headset_Price *= 2.4;  
+              Views.innerHTML = View;
+              Head_Price.innerHTML = "Price: " + Headset_Price;
+              StatsSR.innerHTML = "Sub Odds per View: 1/" + Peak_Sub;
+         } else{
+             alert("You don't have enough Views for this purchase!")
+         }
+     }
+ }
+ 
+ function Speed_Upgrade(){
     alert("Upgrading your GPU will increase your View Speed. (+10%)");
     answer = prompt("Do you want to Upgrade your GPU? (y/anything else)");
-    if (answer == "y") {
-        if (View >= Speed_Price) {
+    if(answer == "y"){
+        if(View >= Speed_Price){
             alert("You Bought a New GPU!");
             speed -= 5;
             View -= Speed_Price
             Speed_Price *= 2.4;
-
+         
             Speeda.innerHTML = "Price: " + Speed_Price;
             Views.innerHTML = View;
             StatsSpeed.innerHTML = "View Speed: " + speed + "ms/View"
@@ -537,12 +590,14 @@ function Speed_Upgrade() {
             alert("You don't have enough views for this purchase!")
         }
     }
-
-}
-
-function Trending(event) {
-    alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
-}    </script>
+ 
+ }
+ function Trending(event) {
+     alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
+ }
+        </script>
 </body>
-
+ 
 </html>
+ 
+
