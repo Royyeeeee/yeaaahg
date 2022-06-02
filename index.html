@@ -344,7 +344,7 @@
     </center>
     <script>
  
-//display subs/views.
+ //display subs/views.
  let Subscribers = document.getElementById("Subscribers");
  let Views = document.getElementById("Views");
  let Cam_Price = document.getElementById("one");
@@ -480,7 +480,7 @@
                 }
                 Subscribers.innerHTML = localStorage.Subs;
               }  
-             Views.innerHTML = localStorage.Viewz;
+             Views.innerHTML = Math.round(localStorage.Viewz);
              VRV.innerHTML = VVV + " Video Views";
              VRS.innerHTML = VVS + " Video Subscribers";
              if (typeof(Storage) !== "undefined") {
@@ -546,7 +546,7 @@
                 }
             }
              Cam_Price.innerHTML = "Price: " + Math.round(localStorage.Camera_Pricez) + " Views"
-             Views.innerHTML = localStorage.Viewz;
+             Views.innerHTML = Math.round(localStorage.Viewz);
              StatsVR.innerHTML = "View Range per Video: " + localStorage.Low_Viewz + " - " + localStorage.Peak_Viewz;
          } else {
              alert("You don't have enough for this upgrade!")
@@ -559,13 +559,13 @@
      alert("Upgrading your Headset will increase your chances at Subscriber per View. (+10%)");
      answer = prompt("Do you want to Upgrade your Headset? (y/anything else)")
      if(answer == "y"){
-         if(View >= Headset_Price){
+         if(localStorage.Viewz >= Headset_Price){
              alert("You Upgraded your Headset!");
              Peak_Sub--;
               Head_Price.innerHTML = "Price: " + Math.round(Headset_Price) + " Views";
-              View -= Headset_Price;
+              localStorage.Viewz -= Headset_Price;
               Headset_Price *= 2.4;  
-              Views.innerHTML = View;
+              Views.innerHTML = Math.round(localStorage.Viewz);
               Head_Price.innerHTML = "Price: " + Headset_Price;
               StatsSR.innerHTML = "Sub Odds per View: 1/" + Peak_Sub;
          } else{
@@ -596,6 +596,8 @@
  function Trending(event) {
      alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
  }
+ 
+
      </script>
 </body>
  
