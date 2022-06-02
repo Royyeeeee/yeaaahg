@@ -389,8 +389,13 @@
  let Peak_View = 400;
  let Low_View = 100 ;
  let Peak_Sub = 10
-
-               localStorage.Camera_Pricez = Number(localStorage.Camera_Pricez)+100;
+ //Display Subs/View RIGHT when you reload.
+StatsTV.innerHTML = "Total Views: " + localStorage.yes
+Views.innerHTML = Math.round(localStorage.Viewz);
+Subscribers.innerHTML = localStorage.Subs;
+localStorage.Camera_Pricez = Number(localStorage.Camera_Pricez)+100;
+Views.innerHTML = Math.round(localStorage.Viewz);
+StatsVR.innerHTML = "View Range per Video: " + localStorage.Low_Viewz + " - " + localStorage.Peak_Viewz;
      //logics (can be updated)
  let speed = 50;
  let day = 0
@@ -451,12 +456,9 @@
                   localStorage.Viewz = 1;
                 }
             }
-               
-           
-           
              if (typeof(Storage) !== "undefined") {
                 if (localStorage.Subs) {
-                    View_Logic = Math.floor(Math.random() * (Peak_Sub - 1 + 1) + 1)
+                    View_Logic = Math.floor(Math.random() * (localStorage.Peak_Sub - 1 + 1) + 1)
              if (View_Logic == 3) {
                  ani++
                  if (ani == 3) {
@@ -491,7 +493,7 @@
                   localStorage.yes = 1;
                 }
             }
-             StatsTV.innerHTML = "Total Views: " + STV
+             StatsTV.innerHTML = "Total Views: " + localStorage.yes
              if (time == 0) {
                  time = 30;
                  logo = 0;
@@ -566,10 +568,19 @@
               localStorage.Viewz -= Headset_Price;
               Headset_Price *= 2.4;  
               Views.innerHTML = Math.round(localStorage.Viewz);
+             if (typeof(Storage) !== "undefined") {
+                if (localStorage.Peak_Sub) {
+                  localStorage.Peak_Sub = Number(localStorage.Peak_Sub)-1;
+                  Peak_Sub -= localStorage.Peak_Sub;
+                  
+                } else {
+                  localStorage.Peak_Sub = 1;
+                }
+            }
               Head_Price.innerHTML = "Price: " + Headset_Price;
-              StatsSR.innerHTML = "Sub Odds per View: 1/" + Peak_Sub;
+              StatsSR.innerHTML = "Sub Odds per View: 1/" + localStorage.Peak_Sub;;
          } else{
-             alert("You don't have enough Views for this purchase!")
+             alert("You don't have enough Views for this purchase!");
          }
      }
  }
@@ -596,8 +607,6 @@
  function Trending(event) {
      alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
  }
- 
-
      </script>
 </body>
  
