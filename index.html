@@ -343,6 +343,7 @@
       </center>
     </center>
     <script>
+ 
 //display subs/views.
  let Subscribers = document.getElementById("Subscribers");
  let Views = document.getElementById("Views");
@@ -445,7 +446,7 @@
              if (typeof(Storage) !== "undefined") {
                 if (localStorage.Viewz) {
                   localStorage.Viewz = Number(localStorage.Viewz)+1;
-                  View = localStorage.Viewz
+                  localStorage.Viewz
                 } else {
                   localStorage.Viewz = 1;
                 }
@@ -479,7 +480,7 @@
                 }
                 Subscribers.innerHTML = localStorage.Subs;
               }  
-             Views.innerHTML = View;
+             Views.innerHTML = localStorage.Viewz;
              VRV.innerHTML = VVV + " Video Views";
              VRS.innerHTML = VVS + " Video Subscribers";
              if (typeof(Storage) !== "undefined") {
@@ -539,13 +540,13 @@
                   localStorage.Camera_Pricez = Number(localStorage.Camera_Pricez)+153*2.4;
                   Low_View = localStorage.Camera_Pricez
                   Camera_Price = localStorage.Camera_Pricez
-                  View -= localStorage.Camera_Pricez;
+                  localStorage.Viewz -= localStorage.Camera_Pricez;
                 } else {
                   localStorage.Camera_Pricez = 1;
                 }
             }
              Cam_Price.innerHTML = "Price: " + Math.round(localStorage.Camera_Pricez) + " Views"
-             Views.innerHTML = View;
+             Views.innerHTML = localStorage.Viewz;
              StatsVR.innerHTML = "View Range per Video: " + localStorage.Low_Viewz + " - " + localStorage.Peak_Viewz;
          } else {
              alert("You don't have enough for this upgrade!")
@@ -595,9 +596,8 @@
  function Trending(event) {
      alert("Trending Words Include: " + word1 + ", " + word2 + " and " + word3)
  }
-        </script>
+     </script>
 </body>
  
 </html>
  
-
