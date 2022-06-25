@@ -66,6 +66,39 @@
             width: 40vw;
             height: 100vh;
             border: .5vw solid white;
+            position: relative;
+        }
+        
+        #Header {
+            color: white;
+            width: 15vw;
+            text-align: center;
+            position: relative;
+            height: 10vh;
+            background-color: black;
+            font-size: 7vh;
+            border: .5vh solid white;
+        }
+        
+        #upgrade_head {
+            color: white;
+            position: relative;
+        }
+        
+        #Buy {
+            position: relative;
+            top: -5vw;
+            float: right;
+            font-size: 5vh;
+            background-color: black;
+            color: white;
+            border: .5vw solid white;
+        }
+        
+        .upgrade {
+            width: 90%;
+            height: 18vh;
+            border: .5vh solid white;
         }
         
         #Stats_And_Leaderboards {
@@ -74,75 +107,102 @@
             height: 100vh;
             border: .5vw solid white;
         }
+        
+        #Total_Views {
+            color: white;
+            font-size: 5vh;
+            position: relative;
+            left: 3vh;
+        }
+        
+        #Speed {
+            color: white;
+            font-size: 5vh;
+            position: relative;
+            left: 3vh;
+        }
     </style>
 </head>
 
 <body>
-
     <div id="game">
-
         <div id="Create_Video_And_Numbers">
-
-
             <div id="Subscribers"></div>
             <br>
             <div id="Views"></div>
-
             <div id="Create_Video_Display">
                 <button id="Create_Video" onclick="Create_Video()">Create Video!</button>
             </div>
-
         </div>
-
-
         <div id="Stats_And_Leaderboards">
-
-
-
-
+            <h1 id="Header">Stats</h1>
+            <div id="Total_Views"></div>
+            <br>
+            <div id="Speed">Time/View: 100ms</div>
         </div>
-
         <center>
             <div id="Shop_Menu">
-
-
+                <h1 id="Header">Shop</h1>
+                <div class="upgrade">
+                    <h3 id="upgrade_head">Sony RX40</h3>
+                    <button id="Buy" onclick="Buy_Camera()">Buy</button>
+                </div>
+                <div class="upgrade">
+                    <h3 id="upgrade_head">HyperX Cloud</h3>
+                    <button id="Buy" onclick="Buy_Camera()">Buy</button>
+                </div>
+                <div class="upgrade">
+                    <h3 id="upgrade_head">GTX 1050TI</h3>
+                    <button id="Buy" onclick="Buy_Camera()">Buy</button>
+                </div>
+                <div class="upgrade">
+                    <h3 id="upgrade_head">Sony RX40</h3>
+                    <button id="Buy" onclick="Buy_Camera()">Buy</button>
+                </div>
 
 
             </div>
         </center>
     </div>
-
-
     <script>
-        
         Views = document.getElementById("Views");
         Subscribers = document.getElementById("Subscribers");
+        Total_Views = document.getElementById("Total_Views");
+        Total_Views.innerHTML = "Total Views: " + Number(localStorage.totalView);
 
         Views.innerHTML = "Views: " + Number(localStorage.View);
         Subscribers.innerHTML = "Subs: " + Number(localStorage.Sub);
 
         function Create_Video() {
             let y = setInterval(function() {
-                sub_Change = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+
+                sub_Change = Math.floor(Math.random() * (20 - 1 + 1) + 1);
+
                 if (sub_Change == 5) {
                     if (localStorage.Sub) {
                         localStorage.Sub = Number(localStorage.Sub) + 1;
                     } else {
                         localStorage.Sub = 0;
                     }
-                    Subscribers.innerHTML = "Subs: " + Number(localStorage.Sub);
                 }
+
                 if (localStorage.View) {
                     localStorage.View = Number(localStorage.View) + 1;
                 } else {
                     localStorage.View = 1;
                 }
+                if (localStorage.totalView) {
+                    localStorage.totalView = Number(localStorage.totalView) + 1;
+                } else {
+                    localStorage.totalView = 1;
+                }
+
+                Total_Views.innerHTML = "Total Views: " + Number(localStorage.totalView);
+                Subscribers.innerHTML = "Subs: " + Number(localStorage.Sub);
                 Views.innerHTML = "Views: " + Number(localStorage.View);
             }, 100)
         }
-
     </script>
 </body>
 
 </html>
-
