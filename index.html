@@ -1,509 +1,148 @@
-<!DOCTYPE htm​​l>
-<html onkeypress="Upload(event)">
- 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-   <style>
-       body {
-           background-color: #2b2b2b;
-       }
-       /* Displays subscribers. */
-      
-       #Subscribers {
-           text-align: center;
-           font-family: cursive;
-           width: 300px;
-           height: 40px;
-           font-size: 25px;
-           color: white;
-           border-radius: 10px;
-       }
-       /* Displays views. */
-      
-       #Views {
-           text-align: center;
-           font-family: cursive;
-           position: relative;
-           width: 300px;
-           height: 40px;
-           font-size: 25px;
-           color: white;
-           border-radius: 10px;
-       }
-       /*space between the Live Count and the UI.*/
-      
-       #Count_Buttons {
-           height: 100px;
-       }
-      
-       #Border_Create_Video {
-           Width: 400px;
-           border: 5px solid black;
-           height: 400px;
-           box-shadow: 10px 10px 15px;
-       }
-      
-       #Start_Video {
-           width: 250px;
-           height: 75px;
-           font-size: 30px;
-           position: relative;
-           top: 100px;
-           background-color: black;
-           border: 5px solid white;
-           color: white;
-       }
-      
-       #Shop {
-           box-shadow: 5px 5px 10px black;
-           position: relative;
-           top: -550px;
-           left: 20px;
-           width: 730px;
-           height: 700px;
-           border: 5px solid black;
-           overflow-y: scroll;
-           overflow-x: hidden;
-       }
-      
-       #shop_Name {
-           background-color: black;
-           color: white;
-           font-size: 70px;
-           border: 5px solid white;
-           width: 400px;
-           height: 90px;
-           position: relative;
-           top: -570px;
-       }
-      
-       #Item {
-           position: relative;
-           top: 30px;
-           left: 0px;
-           box-shadow: 10px 10px 20px black;
-           width: 660px;
-           height: 200px;
-           border: 5px solid black;
-       }
-      
-       #Item_Name {
-           width: 200px;
-           background-color: black;
-           box-shadow: 5px 5px 10px black;
-           height: 50px;
-           color: white;
-           font-size: 30px;
-       }
-      
-       #Vid_Subs {
-           color: white;
-           font-family: cursive;
-           font-size: 25px;
-           position: relative;
-           top: 150px;
-       }
-      
-       #Vid_Views {
-           color: white;
-           font-family: cursive;
-           font-size: 25px;
-           position: relative;
-           top: -290px;
-       }
-      
-       #Play_Button {
-           width: 50%;
-           height: 50%;
-           position: relative;
-           top: -425px;
-           left: 40px;
-       }
-      
-       #Viewa {
-           Width: 60%;
-           height: 60%;
-           position: relative;
-           top: -595px;
-           left: 50px;
-       }
-      
-       #Camera {
-           width: 25%;
-           position: relative;
-           left: -220px;
-       }
-      
-       #histo {
-           width: 300px;
-           height: 250px;
-           border: 5px solid black;
-           position: relative;
-           top: -230px;
-           box-shadow: 10px 10px 20px;
-           overflow-y: scroll;
-           overflow-x: hidden;
-       }
-      
-       #History_Name {
-           Width: 200px;
-           height: 50px;
-           font-size: 30PX;
-           background-color: black;
-           border: 5px solid white;
-           color: White;
-       }
-      
-       #Buy {
-           width: 100px;
-           height: 55px;
-           font-size: 20px;
-           border: 5px solid white;
-           background-color: black;
-           color: white;
-           position: relative;
-           top: 20px;
-       }
-      
-       .Price {
-           color: white;
-           font-family: cursive;
-           position: relative;
-           top: 10px;
-       }
-      
-       #Stats_Border {
-           Width: 400px;
-           height: 400px;
-           border: 5px solid black;
-           float: right;
-           position: relative;
-           top: -1300px;
-           box-shadow: 10px 10px 40px black;
-       }
-      
-       .Stat {
-           color: white;
-           font-size: 22px;
-           font-family: cursive;
-       }
-      
-       #Stats_Name {
-           Width: 150px;
-           height: 50px;
-           background-color: black;
-           border: 5px solid white;
-           color: white;
-           font-size: 35px;
-       }
-      
-       #Trending_Button {
-           width: 180px;
-           height: 55px;
-           background-color: black;
-           border: 5px solid white;
-           color: white;
-           position: relative;
-           top: 120px;
-           font-size: 20px;
-       }
-      
-       #Leaderboard {
-           width: 400px;
-           height: 350px;
-           border: 5px solid black;
-           float: right;
-           position: relative;
-           top: 140px;
-           overflow-y: scroll;
-           box-shadow: 20px 10px 20px black;
-       }
-      
-       #Leaderboard_Name {
-           width: 170px;
-           height: 50px;
-           font-size: 30px;
-           color: white;
-           background-color: black;
-           border: 5px solid white;
-       }
-      
-       .Placed {
-           font-size: 25px;
-           color: white;
-           font-family: cursive;
-       }
-   </style>
-</head>
- 
-<body>
-   <br>
-   <br>
-   <div id="Subscribers">0</div>
-   <div id="Views">0</div>
-   <div id="Count_Buttons"></div>
-   <div id="Border_Create_Video">
-       <center>
-           <button onclick="video_Made()" id="Start_Video">Create Video!</button>
-           <button id='Trending_Button' onclick='addCoins()'>What's Trending?</button>
-           <div id="Vid_Subs">0 Video Subscribers</div>
-           <img id="Play_Button" src="data:image/png;base64,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">
-           <img id="Viewa" src='data:image/png;base64,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'>
-           <div id="Vid_Views">0 Video Views</div>
-           <div id="histo">
-               <div id="History_Name">History</div>
-           </div>
-       </center>
-   </div>
-   <center>
-       <div id="shop_Name">Shop</div>
-       <div id="Shop">
-           <div id="Item">
-               <div id="Item_Name">Sony RX100</div>
-               <button id="Buy" onclick="upgrade_Camera()">Buy</button>
-               <h1 class="Price" id="one">Price: 100 Views</h1>
-           </div>
-           <br>
-           <div id="Item">
-               <div id="Item_Name">HyperX HS</div>
-               <button id="Buy">Buy</button>
-               <h1 class="Price" id="two">Price: 270 Views</h1>
-           </div>
-           <br>
-           <div id="Item">
-               <div id="Item_Name">GTX 1050</div>
-               <button id="Buy">Buy</button>
-               <h1 class="Price" id="three">Price: 1590 Views</h1>
-           </div>
-           <br>
-           <div id="Item">
-               <div id="Item_Name"></div>
-               <button id="Buy">Buy</button>
-               <h1 class="Price" id="4">Price: 100 Views</h1>
-           </div>
-           <br>
-           <div id="Item">
-               <div id="I tem_Name"></div>
-               <button id="Buy">Buy</button>
-               <h1 id="Price">Price: 100 Views</h1>
-           </div>
-           <br>
-           <div id="Item">
-               <div id="Item_Name"></div>
-               <button id="Buy">Buy</button>
-               <h1 id="Price">Price: 100 Views</h1>
-           </div>
-       </div>
-       <div id="Stats_Border">
-           <div id="Stats_Name">Stats</div>
-           <br>
-           <br>
-           <div class="Stat" id="SR">Sub Odds per View: 1/10</div>
-           <br>
-           <div class="Stat" id="VR">View Range per Video: 35 - 100</div>
-           <br>
-           <div class="Stat" id="Spee">View Speed: 50ms/View</div>
-           <br>
-           <div class="Stat" id="TV">Total Views: 0</div>
-           <div id="Leaderboard">
-               <div id="Leaderboard_Name">Leaderboards</div>
-               <br>
-               <h1 class="Placed" id="Pewdiepie">1.) PewDiePie: 110,403,203</h1>
-               <h1 class="Placed" id="MrBeast">2.) MrBeast: 93,323,643</h1>
-               <h1 class="Placed" id="Dude">3.) Dude Perfect: 53,432,643</h1>
-               <h1 class="Placed"></h1>
-               <h1 class="Placed"></h1>
-               <h1 class="Placed"></h1>
-               <br>
-               <h1 class="Placed"></h1>
-               <br>
-               <h1 class="Placed"></h1>
-               <br>
-               <h1 class="Placed"></h1>
-               <br>
-               <h1 class="Placed"></h1>
-           </div>
-       </div>
-   </center>
-   <script>
- //leogics
-    let click_Count = 0;
-    Counto = 0;
-    let up_one = 0;
-    //VIEW COUNT LIVE
-    let Views = 0;
-    let view_Display = document.getElementById("Views");
-    view_Display.innerHTML = Math.round(localStorage.View);
-    let total_Views = 0;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    total_Views_Display = document.getElementById("TV");
-    total_Views_Display.innerHTML = "Total Views: " + Math.round(localStorage.total_View);
-
-    if (localStorage.high_Views) {
-        localStorage.high_Views = Number(200)
-    } else {
-        localStorage.high_Views = 0;
-    }
-
-
-
-    if(localStorage.up_one){
-        localStorage.up_one = Number(localStorage.up_one);
-    } else {
-        localStorage.up_one = 0;
-    }
-
-
-    if(localStorage.up_two){
-        localStorage.up_two = Number(localStorage.up_two);
-    } else {
-        localStorage.up_two = 0;
-    }
-
-
-    //SUB COUNT LIVE
-    sub_Display = document.getElementById("Subscribers");
-    sub_Display.innerHTML = localStorage.Subs;
-
-
-    //SHOP
-    one = document.getElementById("one")
-
-    if(localStorage.camera_Price){
-        localStorage.camera_Price = Number(localStorage.camera_Price);
-        if(localStorage.up_one > 0) {
-        one.innerHTML = "Price: " + Math.round(localStorage.camera_Price) + " Views";
-        } else {
-            one.innerHTML = "Price: " + 100 + " Views"
+    <style>
+        body {
+            background-color: #292929;
         }
-    } else {
-        localStorage.camera_Price = 0;
-    }
+        
+        #game {
+            overflow: auto;
+        }
+        
+        #Create_Video_And_Numbers {
+            position: absolute;
+            width: 25vw;
+            height: 100vh;
+            border: .5vw solid white;
+        }
+        
+        #Subscribers {
+            font-size: 3vw;
+            position: relative;
+            left: 4vh;
+            top: 4vh;
+            background-color: black;
+            color: white;
+            border: .5vh solid white;
+        }
+        
+        #Views {
+            position: relative;
+            left: 4vh;
+            top: 4vh;
+            font-size: 3vw;
+            background-color: black;
+            color: white;
+            border: .5vh solid white;
+        }
+        
+        #Create_Video_Display {
+            position: relative;
+            top: 10vh;
+            width: fit-content;
+            float: right;
+            height: 50vh;
+            border: .5vw solid white;
+        }
+        
+        #Create_Video {
+            width: 24.5vw;
+            height: 10vh;
+            position: relative;
+            background-color: black;
+            color: white;
+            border: .5vh solid white;
+            top: 40%;
+            font-size: 5vh;
+        }
+        
+        #Shop_Menu {
+            width: 40vw;
+            height: 100vh;
+            border: .5vw solid white;
+        }
+        
+        #Stats_And_Leaderboards {
+            float: right;
+            width: 25vw;
+            height: 100vh;
+            border: .5vw solid white;
+        }
+    </style>
+</head>
 
-    two = document.getElementById("two");
+<body>
 
-    if(localStorage.headset_Price){
-        localStorage.headset_Price = Number(localStorage.headset_Price);
-    } else {
-        localStorage.headset_Price = 0;
-    }
+    <div id="game">
 
-    if(localStorage.up_two = 1){
-    two.innerHTML = "Price: " + localStorage.headset_Price + " Views"
-    } else {
-        localStorage.headset_Price = Number(270);
-        two.innerHTML = "Price: " + localStorage.headset_Price + " Views";
-    }
-
-    if(localStorage.high_Sub){
-        localStorage.high_Sub = Number(localStorage.high_Sub);
-    } else {
-        localStorage.high_Sub = 0;
-    }
-
-    if(up_two > 1){
-        localStorage.high_Sub = Number(15);
-    } else {
-        localStorage.high_Sub = Number(15);
-    }
-
-    if(localStorage.up_two < 1){
-        localStorage.high_Sub = Number(19)
-    }
+        <div id="Create_Video_And_Numbers">
 
 
-    function addCoins() {
-        localStorage.get(localStorage.Coin);
-        localStorage.Coin = Number(localStorage.Coin) + 1;
-    }
-    function video_Made() {
-        click_Count++;
-        if (click_Count == 1) {
-            Counto = 0;
-            Count = Math.floor(Math.random() * (localStorage.high_Views - 10 + 1) + 10);
-            let Start_Video = setInterval(function() {
-                Counto++
-                if (localStorage.Subs) {
-                    let y = Math.floor(Math.random() * (localStorage.high_Sub - 1 + 1) + 1)
-                    if (y == 5) {
-                        localStorage.Subs = Number(localStorage.Subs) + 1;
-                        Subz = Number(localStorage.Subs);
+            <div id="Subscribers"></div>
+            <br>
+            <div id="Views"></div>
+
+            <div id="Create_Video_Display">
+                <button id="Create_Video" onclick="Create_Video()">Create Video!</button>
+            </div>
+
+        </div>
+
+
+        <div id="Stats_And_Leaderboards">
+
+
+
+
+        </div>
+
+        <center>
+            <div id="Shop_Menu">
+
+
+
+
+            </div>
+        </center>
+    </div>
+
+
+    <script>
+        
+        Views = document.getElementById("Views");
+        Subscribers = document.getElementById("Subscribers");
+
+        Views.innerHTML = "Views: " + Number(localStorage.View);
+        Subscribers.innerHTML = "Subs: " + Number(localStorage.Sub);
+
+        function Create_Video() {
+            let y = setInterval(function() {
+                sub_Change = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+                if (sub_Change == 5) {
+                    if (localStorage.Sub) {
+                        localStorage.Sub = Number(localStorage.Sub) + 1;
+                    } else {
+                        localStorage.Sub = 0;
                     }
-                } else {
-                    localStorage.Subs = 0;
-                }
-                if (localStorage.total_View) {
-                    localStorage.total_View = Number(localStorage.total_View) + 1;
-                    total_Views = Number(localStorage.total_View);
-                } else {
-                    localStorage.total_View = 0;
+                    Subscribers.innerHTML = "Subs: " + Number(localStorage.Sub);
                 }
                 if (localStorage.View) {
                     localStorage.View = Number(localStorage.View) + 1;
-                    Views = Number(localStorage.View);
                 } else {
-                    localStorage.View = 0;
+                    localStorage.View = 1;
                 }
-                total_Views_Display.innerHTML = "Total Views: " + localStorage.total_View;
-                view_Display.innerHTML = Math.round(localStorage.View);
-                sub_Display.innerHTML = localStorage.Subs;
-                if (Counto == Count) {
-                    click_Count = 0;
-                    clearInterval(Start_Video)
-                }
-            }, 70)
-        } else {}
-    }
-    function upgrade_Camera() {
-        if(localStorage.up_one > 0){
-        if(localStorage.View >= Math.round(localStorage.camera_Price)){
-            alert("You upgraded your Camera!")
-            localStorage.View = Number(localStorage.View)-localStorage.camera_Price
-            localStorage.high_Views = Number(localStorage.high_Views) * 1.7
-            localStorage.camera_Price = Number(localStorage.camera_Price) * 1.6
-            one.innerHTML = "Price: " + Math.round(localStorage.camera_Price) + " Views"
-            total_Views_Display.innerHTML = Math.round(localStorage.View)
-            view_Display.innerHTML = Math.round(localStorage.View);
-        } else {
-            alert("You don't have enough for this purchase!")
+                Views.innerHTML = "Views: " + Number(localStorage.View);
+            }, 100)
         }
-    } else {
-        if(localStorage.View >= 100){
-            alert("You upgraded your Camera!")
-            localStorage.View = Number(localStorage.View)-100;
-            localStorage.up_one = Number(localStorage.up_one) + 1;
-            localStorage.View = Number(localStorage.View)-localStorage.camera_Price
-            localStorage.high_Views = Number(localStorage.high_Views) + 200
-            localStorage.camera_Price = Number(localStorage.camera_Price) + 260;
-            one.innerHTML = "Price: " + Math.round(localStorage.camera_Price) + " Views"
-            total_Views_Display.innerHTML = Math.round(localStorage.View)
-            view_Display.innerHTML = Math.round(localStorage.View);
-        } else{
-            alert("You don't have enough for this purchase!")
-        }
-    }
-    }
 
-    function upgrade_Headset(){
-            if(localStorage.View >= localStorage.headset_Price){
-                localStorage.up_two = Number(localStorage.up_two) + 1;
-                alert("You upgraded your Headset!");
-                localStorage.View = Number(localStorage.View) - localStorage.headset_Price;
-                localStorage.headset_Price = Number(localStorage.headset_Price) + 478;
-                localStorage.high_Sub = Number(localStorage.high_Sub) - 1;
-                view_Display.innerHTML = Math.round(localStorage.View);
-                two.innerHTML = "Price: " + localStorage.headset_Price + " Views"
-            } else {
-                alert("You don't have enough for this purchase!");
-            }
-
-        }
-    
-
-
-
-
- </script>
+    </script>
 </body>
- 
+
 </html>
 
